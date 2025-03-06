@@ -14,7 +14,7 @@ digraph Taskline {
     node [fillcolor=lightgray];
     "P1-T2" [label="P1-T2: 设计初始版本数据库Schema"];
     "P1-T2-PlanB" [label="P1-T2-PlanB: 使用NoSQL数据库原型验证"];
-    "P2-T1_SYNC" [label="P2-T1_SYNC: 游戏化 & AI引擎 雛成同步点"];
+    "P2-T1_SYNC" [label="P2-T1_SYNC: 游戏化 & AI引擎 集成同步点"];
 
     // 关键路径依赖关系
     "P1-T1" -> "P2-T1";

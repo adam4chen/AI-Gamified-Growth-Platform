@@ -1,0 +1,16 @@
+{
+  "@type": "Taskline",
+  "framework": "SCRUM/OKR混合模型",
+  "criticalPath": ["TaskID1", "TaskID3", "TaskID5"],
+  "tasks": [
+    {
+      "TaskID": "P1-T1",
+      "Title": "需求三角验证",
+      "SuccessCriteria": ["完成3方需求确认书", "风险登记册更新v2"],
+      "TimeBox": {"理想":8, "缓冲":3},
+      "Complexity": 2,
+      "Dependency": ["P0-T4"],
+      "Resource": {"BA":1, "原型工具":1}
+    }
+  ]
+}
