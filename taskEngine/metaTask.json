@@ -1,0 +1,182 @@
+{
+    "@context": "https://example.com/edugame_ontology",
+    "@type": "Taskline",
+    "framework": "SCRUM/OKR混合模型",
+    "criticalPath": [
+        "P1-T1",
+        "P2-T1",
+        "P3-T1",
+        "P4-T1",
+        "P5-T1"
+    ],
+    "tasks": [
+        {
+            "TaskID": "P1-T1",
+            "Title": "定义核心游戏化机制与用户画像",
+            "SuccessCriteria": [
+                "完成3个核心游戏化机制设计文档",
+                "定义3个典型用户画像",
+                "用户画像得到验证"
+            ],
+            "TimeBox": {
+                "理想": 40,
+                "缓冲": 16
+            },
+            "Complexity": 3,
+            "Dependency": [],
+            "Resource": {
+                "产品经理": 1,
+                "游戏设计师": 1,
+                "教育专家": 0.5
+            },
+            "Responsible": "产品经理",
+            "Accountable": "产品负责人",
+            "Consulted": "游戏设计师, 教育专家",
+            "Informed": "兼职开发人员"
+        },
+        {
+            "TaskID": "P1-T2",
+            "Title": "设计初始版本数据库Schema",
+            "SuccessCriteria": [
+                "完成数据库Schema设计文档",
+                "定义关键数据表"
+            ],
+            "TimeBox": {
+                "理想": 24,
+                "缓冲": 8
+            },
+            "Complexity": 3,
+            "Dependency": [
+                "P1-T1"
+            ],
+            "Resource": {
+                "后端开发": 1
+            },
+            "Responsible": "后端开发",
+            "Accountable": "技术负责人",
+            "Consulted": "产品经理",
+            "Informed": "兼职开发人员"
+        },
+        {
+            "TaskID": "P1-T2-PlanB",
+            "Title": "使用NoSQL数据库原型验证",
+            "SuccessCriteria": [
+                "快速构建原型数据库",
+                "验证数据存储结构"
+            ],
+            "RiskMitigation": "应对关系型数据库设计可能带来的性能瓶颈.",
+            "Responsible": "后端开发",
+            "Accountable": "技术负责人",
+            "Consulted": "产品经理",
+            "Informed": "兼职开发人员"
+        },
+        {
+            "TaskID": "P2-T1",
+            "Title": "实现核心游戏化机制 (原型)",
+            "SuccessCriteria": [
+                "完成任务系统、奖励系统、成就系统原型"
+            ],
+            "TimeBox": {
+                "理想": 80,
+                "缓冲": 32
+            },
+            "Complexity": 4,
+            "Dependency": [
+                "P1-T1",
+                "P1-T2"
+            ],
+            "Resource": {
+                "前端开发": 1,
+                "后端开发": 1,
+                "游戏设计师": 0.5
+            },
+            "Responsible": "前端开发",
+            "Accountable": "技术负责人",
+            "Consulted": "游戏设计师",
+            "Informed": "产品经理"
+        },
+        {
+            "TaskID": "P3-T1",
+            "Title": "集成AI Dungeon Master (原型)",
+            "SuccessCriteria": [
+                "完成基于规则的AI难度调整",
+                "完成基于用户行为的AI个性化学习路径调整"
+            ],
+            "TimeBox": {
+                "理想": 80,
+                "缓冲": 32
+            },
+            "Complexity": 5,
+            "Dependency": [
+                "P2-T1"
+            ],
+            "Resource": {
+                "AI工程师": 1,
+                "后端开发": 1,
+                "教育专家": 0.5
+            },
+            "Responsible": "AI工程师",
+            "Accountable": "技术负责人",
+            "Consulted": "教育专家",
+            "Informed": "产品经理"
+        },
+        {
+            "TaskID": "P4-T1",
+            "Title": "用户界面 (UI) 设计与开发",
+            "SuccessCriteria": [
+                "完成UI设计稿",
+                "完成用户界面开发"
+            ],
+            "TimeBox": {
+                "理想": 80,
+                "缓冲": 32
+            },
+            "Complexity": 3,
+            "Dependency": [
+                "P2-T1",
+                "P3-T1"
+            ],
+            "Resource": {
+                "UI设计师": 1,
+                "前端开发": 1
+            },
+            "Responsible": "UI设计师",
+            "Accountable": "产品经理",
+            "Consulted": "前端开发",
+            "Informed": "兼职开发人员"
+        },
+        {
+            "TaskID": "P5-T1",
+            "Title": "Web平台部署与测试",
+            "SuccessCriteria": [
+                "完成Web平台部署",
+                "完成用户测试"
+            ],
+            "TimeBox": {
+                "理想": 40,
+                "缓冲": 16
+            },
+            "Complexity": 2,
+            "Dependency": [
+                "P4-T1"
+            ],
+            "Resource": {
+                "运维工程师": 0.5,
+                "测试工程师": 1
+            },
+            "Responsible": "运维工程师",
+            "Accountable": "技术负责人",
+            "Consulted": "前端开发, 后端开发",
+            "Informed": "产品经理"
+        },
+        {
+            "TaskID": "P2-T1_SYNC",
+            "Title": "游戏化 & AI引擎 集成同步点",
+            "SuccessCriteria": [
+                "所有依赖任务完成."
+            ],
+            "Responsible": "项目经理",
+            "Accountable": "产品负责人"
+        }
+    ]
+}
