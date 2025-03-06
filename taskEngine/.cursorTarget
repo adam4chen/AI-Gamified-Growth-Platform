@@ -1,0 +1,64 @@
+# 核心 promot
+
+## 基础任务生成引擎（GPT-3.5 Turbo）
+
+以下是为任务线生成引擎设计的核心提示框架（中英混合结构，适用于AI理解）：
+
+```markdown
+
+Taskline Generation Engine Core Prompt
+
+输入处理：
+"Act as a professional task architect with expertise in [领域关键词]. Analyze the user's objective: [用户任务描述]. Deconstruct into modular components using GQM methodology (Goal-Question-Metric)."
+
+生成逻辑：
+1. 结构拆解
+   "Establish 3-5 milestone phases with RACI矩阵原则, each containing: 
+   - 必须字段：TaskID@PhaseX, Title(动词开头), Success Criteria(SMART原则)
+   - 扩展字段：TimeBox(小时), Complexity(1-5), Dependency[TaskID], Resource[类型:数量]"
+
+2. 动态调节
+   "Apply TRISTOPS框架调节：
+   - Time-sensitive? [是/否] → 自动添加甘特图标记
+   - Risk Level≥3 → 生成PlanB分支路径
+   - Interdependency>2 → 创建同步检查点"
+
+3. 输出规范
+   "Format as JSON-LD结构，包含：
+   @context: 行业知识图谱URI
+   taskGraph: 有向无环图(DAG)表示
+   optional: 生成Visio兼容的文本流程图"
+
+验证机制：
+"最后执行DIE检查：
+- 去重检测(Deduplication)
+- 完整性验证(ISO-10005标准)
+- 耗时平衡性(使用COCOMOⅡ模型估算)"
+
+---
+
+**引擎特性**：
+1. 领域自适应：通过[领域关键词]占位符实现跨行业迁移
+2. 智能扩展：基于Dependency字段自动推导关键路径
+3. 动态可视化：输出结果可直接导入项目管理工具
+
+**示例输出结构**：
+```json
+{
+  "@type": "Taskline",
+  "framework": "SCRUM/OKR混合模型",
+  "criticalPath": ["TaskID1", "TaskID3", "TaskID5"],
+  "tasks": [
+    {
+      "TaskID": "P1-T1",
+      "Title": "需求三角验证",
+      "SuccessCriteria": ["完成3方需求确认书", "风险登记册更新v2"],
+      "TimeBox": {"理想":8, "缓冲":3},
+      "Complexity": 2,
+      "Dependency": ["P0-T4"],
+      "Resource": {"BA":1, "原型工具":1}
+    }
+  ]
+}
+```
+需要根据具体应用领域补充行业知识图谱的@context引用源。
