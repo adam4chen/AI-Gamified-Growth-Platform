@@ -1,0 +1,40 @@
+digraph Taskline {
+    rankdir=TB;
+    node [shape=box, style=filled, fillcolor=lightgray, fontname="Arial"];
+
+    // 关键路径节点
+    node [fillcolor=lightblue];
+    "P1-T1" [label="P1-T1: 定义核心游戏化机制与用户画像"];
+    "P2-T1" [label="P2-T1: 实现核心游戏化机制 (原型)"];
+    "P3-T1" [label="P3-T1: 集成AI Dungeon Master (原型)"];
+    "P4-T1" [label="P4-T1: 用户界面 (UI) 设计与开发"];
+    "P5-T1" [label="P5-T1: Web平台部署与测试"];
+
+    // 非关键路径节点
+    node [fillcolor=lightgray];
+    "P1-T2" [label="P1-T2: 设计初始版本数据库Schema"];
+    "P1-T2-PlanB" [label="P1-T2-PlanB: 使用NoSQL数据库原型验证"];
+    "P2-T1_SYNC" [label="P2-T1_SYNC: 游戏化 & AI引擎 雛成同步点"];
+
+    // 关键路径依赖关系
+    "P1-T1" -> "P2-T1";
+    "P2-T1" -> "P3-T1";
+    "P3-T1" -> "P4-T1";
+    "P4-T1" -> "P5-T1";
+
+    // 非关键路径依赖关系
+    "P1-T1" -> "P1-T2";
+    "P1-T2" -> "P2-T1";
+    "P1-T1" -> "P1-T2-PlanB";
+    "P1-T2-PlanB" -> "P2-T1";
+    "P2-T1" -> "P2-T1_SYNC";
+    "P3-T1" -> "P2-T1_SYNC";
+    "P4-T1" -> "P2-T1_SYNC";
+
+    // 关键路径高亮
+    edge [color=red];
+    "P1-T1" -> "P2-T1";
+    "P2-T1" -> "P3-T1";
+    "P3-T1" -> "P4-T1";
+    "P4-T1" -> "P5-T1";
+}
