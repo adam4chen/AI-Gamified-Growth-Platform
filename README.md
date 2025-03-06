@@ -1,4 +1,4 @@
-# AI-Gamified-Growth-Platform
+# AI-Gamified-Growth-Platform （AI Coach）
 > Version 1.0 | 针对18-35岁自我提升人群的AI游戏化成长系统（老爷爷系统）
 
 ## 一、产品概述
